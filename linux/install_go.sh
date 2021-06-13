@@ -5,7 +5,7 @@ set -e
 VERSION="$(./golang_latest_version.py)"
 
 
-[ -z "$GOROOT" ] && GOROOT="$HOME/.go"
+[ -z "$GOROOT" ] && GOROOT="/usr/local/go"
 [ -z "$GOPATH" ] && GOPATH="$HOME/go"
 
 OS="$(uname -s)"
@@ -62,58 +62,58 @@ elif [ -n "$($SHELL -c 'echo $FISH_VERSION')" ]; then
     fi
 fi
 
-if [ "$1" == "--remove" ]; then
-    rm -rf "$GOROOT"
-    if [ "$OS" == "Darwin" ]; then
-        if [ "$shell" == "fish" ]; then
-            sed -i "" '/# GoLang/d' "$shell_profile"
-            sed -i "" '/set GOROOT/d' "$shell_profile"
-            sed -i "" '/set GOPATH/d' "$shell_profile"
-            sed -i "" '/set PATH $GOPATH\/bin $GOROOT\/bin $PATH/d' "$shell_profile"
-        else
-            sed -i "" '/# GoLang/d' "$shell_profile"
-            sed -i "" '/export GOROOT/d' "$shell_profile"
-            sed -i "" '/$GOROOT\/bin/d' "$shell_profile"
-            sed -i "" '/export GOPATH/d' "$shell_profile"
-            sed -i "" '/$GOPATH\/bin/d' "$shell_profile"
-        fi
-    else
-        if [ "$shell" == "fish" ]; then
-            sed -i '/# GoLang/d' "$shell_profile"
-            sed -i '/set GOROOT/d' "$shell_profile"
-            sed -i '/set GOPATH/d' "$shell_profile"
-            sed -i '/set PATH $GOPATH\/bin $GOROOT\/bin $PATH/d' "$shell_profile"
-        else
-            sed -i '/# GoLang/d' "$shell_profile"
-            sed -i '/export GOROOT/d' "$shell_profile"
-            sed -i '/$GOROOT\/bin/d' "$shell_profile"
-            sed -i '/export GOPATH/d' "$shell_profile"
-            sed -i '/$GOPATH\/bin/d' "$shell_profile"
-        fi
-    fi
-    echo "Go removed."
-    exit 0
-elif [ "$1" == "--help" ]; then
-    print_help
-    exit 0
-elif [ "$1" == "--version" ]; then
-    if [ -z "$2" ]; then # Check if --version has a second positional parameter
-        echo "Please provide a version number for: $1"
-    else
-        VERSION=$2
-    fi
-elif [ ! -z "$1" ]; then
-    echo "Unrecognized option: $1"
-    exit 1
-fi
+# if [ "$1" == "--remove" ]; then
+#     rm -rf "$GOROOT"
+#     if [ "$OS" == "Darwin" ]; then
+#         if [ "$shell" == "fish" ]; then
+#             sed -i "" '/# GoLang/d' "$shell_profile"
+#             sed -i "" '/set GOROOT/d' "$shell_profile"
+#             sed -i "" '/set GOPATH/d' "$shell_profile"
+#             sed -i "" '/set PATH $GOPATH\/bin $GOROOT\/bin $PATH/d' "$shell_profile"
+#         else
+#             sed -i "" '/# GoLang/d' "$shell_profile"
+#             sed -i "" '/export GOROOT/d' "$shell_profile"
+#             sed -i "" '/$GOROOT\/bin/d' "$shell_profile"
+#             sed -i "" '/export GOPATH/d' "$shell_profile"
+#             sed -i "" '/$GOPATH\/bin/d' "$shell_profile"
+#         fi
+#     else
+#         if [ "$shell" == "fish" ]; then
+#             sed -i '/# GoLang/d' "$shell_profile"
+#             sed -i '/set GOROOT/d' "$shell_profile"
+#             sed -i '/set GOPATH/d' "$shell_profile"
+#             sed -i '/set PATH $GOPATH\/bin $GOROOT\/bin $PATH/d' "$shell_profile"
+#         else
+#             sed -i '/# GoLang/d' "$shell_profile"
+#             sed -i '/export GOROOT/d' "$shell_profile"
+#             sed -i '/$GOROOT\/bin/d' "$shell_profile"
+#             sed -i '/export GOPATH/d' "$shell_profile"
+#             sed -i '/$GOPATH\/bin/d' "$shell_profile"
+#         fi
+#     fi
+#     echo "Go removed."
+#     exit 0
+# elif [ "$1" == "--help" ]; then
+#     print_help
+#     exit 0
+# elif [ "$1" == "--version" ]; then
+#     if [ -z "$2" ]; then # Check if --version has a second positional parameter
+#         echo "Please provide a version number for: $1"
+#     else
+#         VERSION=$2
+#     fi
+# elif [ ! -z "$1" ]; then
+#     echo "Unrecognized option: $1"
+#     exit 1
+# fi
 
-if [ -d "$GOROOT" ]; then
-    echo "The Go install directory ($GOROOT) already exists. Exiting."
-    exit 1
-fi
+# if [ -d "$GOROOT" ]; then
+#     echo "The Go install directory ($GOROOT) already exists. Exiting."
+#     exit 1
+# fi
 
-PACKAGE_NAME="go$VERSION.$PLATFORM.tar.gz"
-TEMP_DIRECTORY=$(mktemp -d)
+# PACKAGE_NAME="go$VERSION.$PLATFORM.tar.gz"
+# TEMP_DIRECTORY=$(mktemp -d)
 
 echo "Downloading $PACKAGE_NAME ..."
 if hash wget 2>/dev/null; then
@@ -137,15 +137,15 @@ touch "$shell_profile"
 if [ "$shell" == "fish" ]; then
     {
         echo '# GoLang'
-        echo "set GOROOT '${GOROOT}'"
+        # echo "set GOROOT '${GOROOT}'"
         echo "set GOPATH '$GOPATH'"
-        echo 'set PATH $GOPATH/bin $GOROOT/bin $PATH'
+        echo 'set PATH $GOPATH/bin' # $GOROOT/bin $PATH'
     } >> "$shell_profile"
 else
     {
         echo '# GoLang'
-        echo "export GOROOT=${GOROOT}"
-        echo 'export PATH=$GOROOT/bin:$PATH'
+        # echo "export GOROOT=${GOROOT}"
+        # echo 'export PATH=$GOROOT/bin:$PATH'
         echo "export GOPATH=$GOPATH"
         echo 'export PATH=$GOPATH/bin:$PATH'
     } >> "$shell_profile"
