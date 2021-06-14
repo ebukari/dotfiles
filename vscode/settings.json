@@ -1,0 +1,138 @@
+{
+    //  Editor Options
+    "editor.detectIndentation": false,
+    "editor.fontFamily": "Jetbrains Mono",
+    "editor.fontLigatures": true,
+    "editor.formatOnPaste": true,
+    "editor.formatOnSave": true,
+    "editor.linkedEditing": true,
+    "editor.minimap.enabled": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "editor.quickSuggestionsDelay": 1,
+    "editor.snippetSuggestions": "top",
+    "editor.suggestSelection": "first",
+    "editor.tabSize": 4,
+    "editor.useTabStops": true,
+    "editor.wordWrap": "on",
+    "editor.quickSuggestions": {
+        "strings": true,
+        "comments": true
+    },
+    "editor.rulers": [
+        72,
+        80,
+        120
+    ],
+    //  Explorer Options
+    "explorer.confirmDragAndDrop": false,
+    // Extensions Options
+    "extensions.ignoreRecommendations": false,
+    "extensions.autoCheckUpdates": true,
+    "extensions.autoUpdate": true,
+    //  File Options
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**.spec": true,
+        "**/__pycache__": true,
+        "**/.coverage": true,
+        "**/.exercism": true,
+        "**/.history": true,
+        "**/.idea": true,
+        "**/.pytest*": true,
+        "**/.vscode": true,
+        "**/*.code-workspace": true,
+        "**/*egg-info": true,
+        "**/build": true,
+        "**/dist": true,
+        "**/node_modules": true
+    },
+    // Search Options
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/.git": true
+    },
+    // Terminal Options
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "'Ubuntu Mono', monospace",
+    "terminal.integrated.fontSize": 16,
+    // Telemetry
+    "telemetry.enableCrashReporter": false,
+    "telemetry.enableTelemetry": false,
+    // Others
+    "vsicons.dontShowNewVersionMessage": true,
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    // Window Options
+    "window.title": "${dirty}${activeEditorLong}",
+    // WorkBench Options
+    "workbench.activityBar.visible": true,
+    "workbench.editor.decorations.badges": true,
+    "workbench.editor.wrapTabs": true,
+    "workbench.sideBar.location": "left",
+    "workbench.startupEditor": "newUntitledFile",
+    // "workbench.colorTheme": "Aurora X",
+    "workbench.colorCustomizations": {
+        "diffEditor.removedTextBackground": "#bb3d3d55",
+        "diffEditor.insertedTextBackground": "#4bb36255",
+        "editor.selectionBackground": "#135564",
+        "editor.selectionHighlightBackground": "#135564",
+        "terminal.border": "#ffffff",
+    },
+    "workbench.iconTheme": "vscode-icons",
+    //-----------------Language Specific Options Begin Here--------------------------//
+    // Python
+    "python.languageServer": "Pylance",
+    "python.linting.flake8Enabled": true,
+    "python.autoComplete.addBrackets": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--line-length",
+        "100"
+    ],
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnSaveMode": "file",
+        "editor.autoIndent": "advanced",
+        "editor.tabSize": 4,
+        "editor.codeActionsOnSave": {
+            "python.sortImports": true
+        }
+    },
+    // HTML
+    "[html]": {
+        "editor.defaultFormatter": "HookyQR.beautify",
+        "editor.tabSize": 2,
+        "editor.formatOnSave": true
+    },
+    // Javascript
+    "[javascript]": {
+        "editor.defaultFormatter": "HookyQR.beautify"
+    },
+    // YAML
+    "yaml.schemas": {
+        "file:///home/enaa/.vscode/extensions/atlassian.atlascode-2.9.0/resources/schemas/pipelines-schema.json": "bitbucket-pipelines.yml"
+    },
+    // JSON
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "settingsSync.ignoredExtensions": [
+        "shan.code-settings-sync"
+    ],
+    //------------------ Extension Specific Options ---------------------------------//
+    // Atlas Bitbucket
+    "atlascode.bitbucket.enabled": true,
+    "atlascode.jira.enabled": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook"
+    },
+    "workbench.colorTheme": "Visual Studio Dark",
+    "code-runner.enableAppInsights": false,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+}

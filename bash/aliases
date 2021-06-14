@@ -1,0 +1,26 @@
+# Repeat last command with sudo prefix
+alias please='sudo $(fc -ln -1)'
+
+# Use apt-fast for install
+alias apfi='sudo apt-fast install -y'
+
+
+# ------------------ FUNCTIONS ----------------
+
+# Automatically do an ls after each cd
+cd () {
+ 	if [ -n "$1" ]; then
+ 		builtin cd "$@" && ls
+ 	else
+ 		builtin cd ~ && ls
+ 	fi
+}
+
+# Make a directory and immediately cd into it
+mkcd() {
+    if [ $# != 1 ]; then
+            echo "Usage: mkcd <dir>"
+    else
+            mkdir -p $1 && cd $1
+    fi
+}
