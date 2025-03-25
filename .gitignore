@@ -25,8 +25,7 @@
 # Built Visual Studio Code Extensions
 *.vsix
 
-# VSCodium
-vscodium/.config/User
-!vscodium/.config/User/snippets
-!vscodium/.config/User/keybindings.json
-!vscodium/.config/User/settings.json
+# VSCodium unnecessary config
+vscodium/.config/VSCodium/User/globalStorage
+vscodium/.config/VSCodium/User/History
+vscodium/.config/VSCodium/User/workspaceStorage
