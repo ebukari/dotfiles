@@ -1,0 +1,14 @@
+{
+    "showRSS additions feed": {
+        "uid": "{fbea70fb-c43b-42ad-83e9-b3e86b211818}",
+        "url": "https://showrss.info/other/shows.rss"
+    },
+    "showRSS personal feed": {
+        "uid": "{ae9a2414-86b3-41d6-8c83-65e7571a75c4}",
+        "url": "https://showrss.info/user/155211.rss?magnets=true&namespaces=true&name=null&quality=null&re=null"
+    },
+    "showRSS schedule feed": {
+        "uid": "{e638d7f8-f7fb-4c73-bfca-6925ca11b02d}",
+        "url": "https://showrss.info/user/schedule/155211.rss"
+    }
+}

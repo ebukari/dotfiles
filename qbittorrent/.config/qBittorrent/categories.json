@@ -1,0 +1,23 @@
+{
+    "Auto": {
+        "save_path": ""
+    },
+    "Books": {
+        "save_path": ""
+    },
+    "Books/AudioBooks": {
+        "save_path": ""
+    },
+    "Books/eBooks": {
+        "save_path": ""
+    },
+    "Media": {
+        "save_path": ""
+    },
+    "Media/Movies": {
+        "save_path": ""
+    },
+    "Media/TV": {
+        "save_path": ""
+    }
+}
